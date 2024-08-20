@@ -2,6 +2,7 @@ package com.example.apiestoque.controller;
 
 import com.example.apiestoque.models.Produto;
 import com.example.apiestoque.repository.ProdutoRepository;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,7 +56,9 @@ public class ProdutoController {
 
     }
 
+
     @DeleteMapping("/excluir/{id}")
+    @Operation()
     public ResponseEntity<String> excluirProduto(@PathVariable Long id){
 
         if (produtoRepository.findById(id).map(produto -> {
